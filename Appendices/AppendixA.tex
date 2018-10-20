@@ -1,0 +1,282 @@
+\chap{ Dotted or Undotted}
+
+This appendix it's aimed to set up the conventions / notation that I will use in the rest of the thesis and to refresh the reader (and myself) some topics.
+The metric is the mostly plus $ \eta = (-+++)$. The notation will be the same as the book  Wess \& Bagger [referecia]. If the reader is not familiar with these concepts keep going that in the end I will make a connection with the usual Dirac stuff.
+
+Let $\mathbf{M}$ be a two-by-two matrix with $\det \mathbf{M}=1 $, i.e. $\mathbf{M} \in SL(2,C)$, this are matrices with complex values and unit determinant. One thing to note, is the number of generators of this group. We have $4$ complex entries ($8$ real) and the constrain from the unit determinant give two equations (real part $=1$ and  imaginary $=0$). Thus we have $8-2 = 6 $ generators, the same as our old friend The Lorentz Group $SO(3,1)$ with $3$ boosts $+\quad 3$ rotations. 
+Now we introduce the the dotted and undotted indices. The spinor with dotted indices transform under the $(0,1/2)$ representation of Lorentz group and spinor with undotted indices transform  under $(1/2,0)$ conjugate representation.The spinor indices take values $\alpha = 1,2 \quad \dot{\alpha} = \dot{1},\dot{2}$.
+
+
+\begin{subequations}
+\begin{equation} 
+\psi^{'}_{\alpha} = M_{\alpha}^{\;\;\beta} \psi_{\beta} \quad \quad; \quad \quad \psi^{'\alpha} =(M^{-1})_{\beta}^{\;\;\alpha}\psi^{\beta}  
+\label{eq:1a}
+\end{equation}
+
+\noindent
+%\text{and}
+
+\begin{equation}
+\bar{\psi}_{\dot{\alpha}}^{'} = (M^{*})_{\dot{\alpha}}^{\;\;\dot{\beta}}\bar{\psi}_{\dot{\beta}}\quad \quad; \quad \quad
+\bar{\psi}^{'\dot{\alpha}} = (M^{*})_{\,\,\,\,\,\,\dot{\beta}}^{-1\,\,\,\dot{\alpha}}\bar{\psi}^{\dot{\beta}} 
+\label{eq:1b}
+\end{equation}
+\end{subequations}
+
+
+We have two indices (dotted and undotted) the two representation are inequivalent, i.e. we can not find a matrix $\mathbf{C}$ such that $\mathbf{M} = \mathbf{C} \mathbf{M}^{*} \mathbf{C}^{-1}  $. But the two representation in \eqref{eq:1a} are equivalent, thus exist a matrix $\mathbf{\varepsilon}$ such that $\mathbf{M} = \mathbf{\varepsilon} \mathbf{M}^{-1 T} \mathbf{\varepsilon}^{-1}$. Hang on that we will see what this matrix is. The same is valid for the two transformation with dotted indices.
+
+
+We recall that any $2\times2$ matrix can be written as linear combination of the Pauli matrices plus the identity. Let me call this basis as $\sigma ^{m} = (-I,\vec{\sigma})$, where $m = 0,...,3$.
+
+
+\begin{equation}
+\mathbf{P} = P_{m} \mathbf{ \sigma^{m} } = -IP_{0} + \vec{P} \cdot \vec{\sigma} =
+\begin{pmatrix} 
+-P_{0} + P_{3} & P_{1} - iP_{2}\\
+P_{1} + iP_{2} &-P_{0} - P_{3}  
+\end{pmatrix}
+\end{equation}
+
+
+We can see that $\mathbf{P}$ is hermitian ($\mathbf{P} = \mathbf{P}^{\dagger}$). A nice property of the matrix $P$ is that $\det \mathbf{P}= P_{0}^{2} - \vec{P} \cdot \vec{P} = -\eta^{mn} P_{m} P_{n} $. Using the fact that $\mathbf{P}$ is hermitian we can write another matrix  $\mathbf{P'}$ as:
+
+\begin{align} \label{eq:2}
+\mathbf{P'}&= \mathbf{M}\mathbf{P}\mathbf{M}^{\dagger}\\
+\mathbf{P'}^{\dagger}&= (\mathbf{M}\mathbf{P}\mathbf{M}^{\dagger})^{\dagger} = \mathbf{M}\mathbf{P}\mathbf{M}^{\dagger} = \mathbf{P'} 
+\end{align}
+
+Both $\mathbf{P'}$  and $\mathbf{P}$ can be written as linear combination of  $\sigma ^{m} $. The determinant of  $\mathbf{P'}$ (because the determinant of $\mathbf{M}$ is one and $\det [ABC] = \det [A]\det [B]\det [C]  $)  is equal to the determinant of $\mathbf{P'}$. 
+
+
+\begin{equation}
+\det \mathbf{P'} = -\eta^{mn} P_{m}^{'} P_{n}^{'}  = -\eta^{mn} P_{m} P_{n}
+\end{equation}
+
+
+ Now we start to see the connection between the Lorentz group and this matrices.This transformation correspond to a Lorentz transformation, that's cool. Before we continue let's appreciate what we have done. We stared defining a  $2\times2$  matrix $\mathbf{M}$ that had determinant one (you could say unimodular), and we noted that any $2\times2$ hermitian matrix $\mathbf{P}$  could be expanded as a linear combination of  $\sigma ^{m} $ and the determinant of this was the inner product of a Lorentz four vector, i.e, $\eta^{mn} P_{m} P_{n} $. Finally we found a transformation that is the same as the Lorentz Transformation.
+ 
+ 
+ 
+ Lets take a look on the index structure of  $\mathbf{P}$. From \eqref{eq:1a} that  $\mathbf{M}^{\dagger} \equiv \mathbf{({M}^{T})^{*}} = ((M_{\alpha}^{\,\,\,\,\beta})^{T})^{*}  = (M_{\,\,\,\,\alpha}^{\beta})^{*}  =M_{\,\,\,\,\dot{\alpha}}^{\dot{\beta}} $. Thus we can rewrite \eqref{eq:2} as:
+ 
+ \begin{equation}
+  P_{\alpha \dot{\alpha}}^{'} =M_{\alpha}^{\,\,\,\,\beta} P_{\beta \dot{\beta}} M_{\,\,\,\,\dot{\alpha}}^{\dot{\beta}}
+ \end{equation}
+ 
+And the index structure of the Pauli matrices :  $\sigma ^{m} = \sigma ^{m}_{\alpha \dot{\alpha}}$. Note that we use Latin indices for vectors and tensors and Greek indices for spinors.
+Now we return to the matrix $\mathbf{\varepsilon}$ that relate the two equivalent representation \eqref{eq:1a}.
+
+
+Let
+
+
+\begin{align}
+\varepsilon = (\varepsilon_{\alpha \beta})=
+\begin{pmatrix} 
+\varepsilon_{11} &\varepsilon_{12}\\
+\varepsilon_{21} & \varepsilon_{22} 
+\end{pmatrix} =
+\begin{pmatrix} 
+0 &-1\\
+1 & 0 
+\end{pmatrix}\\
+\varepsilon^{-1} = (\varepsilon^{\alpha \beta})=
+\begin{pmatrix} 
+\varepsilon^{11} &\varepsilon^{12}\\
+\varepsilon^{21} & \varepsilon^{22} 
+\end{pmatrix} =
+\begin{pmatrix} 
+0 &1\\
+-1 & 0 
+\end{pmatrix} 
+\end{align}
+
+with this matrix one can just plug in $\mathbf{M}^{-1T} = \mathbf{\varepsilon} \mathbf{M}^{} \mathbf{\varepsilon}^{-1}$ and check that works. The $\varepsilon_{\alpha \beta}$ and  $\varepsilon^{\alpha \beta}$ are antisymmetric tensors, and satisfy $\det \varepsilon = 1$ and $\varepsilon_{\alpha \beta} \varepsilon^{\beta \gamma} = \delta^{ \;\;\gamma}_{\alpha} $. 
+
+we can write  $\mathbf{M}^{-1T} = \mathbf{\varepsilon} \mathbf{M}^{} \mathbf{\varepsilon}^{-1}$ with indices :
+
+\begin{equation}
+ \varepsilon^{ \alpha \beta} M^{\;\;\gamma}_{\beta} \varepsilon_{\gamma \rho} = (M^{-1T})^{\;\;\alpha}_{\rho} = (M^{-1})^{\alpha}_{\;\;\rho} 
+\end{equation}
+
+
+\begin{align}
+\psi^{'\alpha} &= (M^{-1})^{\alpha}_{\;\;\rho} \psi^{\rho}  = \varepsilon^{ \alpha \beta} M^{\;\;\gamma}_{\beta} (\varepsilon_{\gamma \rho}\psi^{\rho} )
+\\  
+(\varepsilon_{ \beta \alpha}\psi^{'\alpha} ) &=   M^{\;\;\gamma}_{\beta} (\varepsilon_{\gamma \rho}\psi^{\rho} )
+\end{align}
+
+Thus $\varepsilon_{\gamma \rho}\psi^{\rho}$ transform as $\psi_{\gamma}$ and the $\varepsilon$ tensor can be used to lower and raise indices:
+\begin{equation}
+\psi_{\gamma}  = \varepsilon_{\gamma \rho}\psi^{\rho} \quad ; \quad \psi^{\gamma}  = \varepsilon^{\gamma \rho}\psi_{\rho}
+\end{equation}
+
+
+Every thing that we have done for undotted indice can be done similar for dotted.
+
+We are almost ready to see the connection to Dirac usual spinor. Before to do we take a look on some identities of the Pauli matrix. If we define another Pauli basis:
+\begin{subequations}
+\begin{equation}
+\bar{\sigma} ^{m} = (-I,-\vec{\sigma})
+\end{equation}
+ \text{with indices}
+\begin{equation}
+ (\bar{\sigma} ^{m})^{\dot{\alpha} \alpha} = \varepsilon^{\dot{\alpha}\dot{\beta}}\varepsilon^{\alpha\beta} (\sigma^{m})_{\beta \dot{\beta}}
+\end{equation}
+\end{subequations}
+
+we have some important identities:
+
+\begin{subequations}
+\begin{equation}
+ \sigma^{(m}\bar{\sigma}^{n)} = (\sigma^{m}\bar{\sigma}^{n} + \sigma^{n}\bar{\sigma}^{m})^{\;\;\beta}_{\alpha} = -2\eta^{mn}\delta^{\;\;\beta}_{\alpha}
+\end{equation}
+\begin{equation}
+ \bar{\sigma}^{(m}\sigma^{n)} = (\bar{\sigma}^{m}\sigma^{n} + \bar{\sigma}^{n}\sigma^{m})^{\;\;\dot{\beta}}_{\dot{\alpha}} = -2\eta^{mn}\delta^{\;\;\dot{\beta}}_{\dot{\alpha}}
+\end{equation}
+\end{subequations}
+
+and 
+
+\begin{subequations}
+\begin{equation}
+ \text{Tr} \;\sigma^{m}\bar{\sigma}^{n}  = -2\eta^{mn}
+ \label{Trace}
+\end{equation}
+\begin{equation}
+(\sigma^{m})_{\alpha\dot{\alpha}} (\bar{\sigma}_{m})^{\dot{\beta}\beta}= -2 \delta^{\;\;\dot{\beta}}_{\dot{\alpha}}\delta^{\;\;\beta}_{\alpha}
+\end{equation}
+\end{subequations}
+
+
+
+
+Now we can easy go back and forth between Lorentz indices and bispinor indices ($ m \leftrightarrow \alpha \dot{\alpha}$ ):
+
+
+\begin{equation}
+p_{\alpha \dot{\alpha}} = p_{m}(\sigma^{m})_{\alpha\dot{\alpha}} \quad ; \quad p_{m} =- \frac{1}{2} (\bar{\sigma}_{m})^{\dot{\beta}\beta} p_{\beta \dot{\beta}}
+\end{equation}
+
+
+
+As I promise, let's see the connection with the usual Dirac matrices and spinors. The Clifford algebra is (in the $(-,+++)$ metric):
+
+\begin{equation}
+\{\Gamma^{m} ,\Gamma^{n}\} = -2I\eta^{mn}
+\label{cli}
+\end{equation}
+
+In the Weyl basis the gamma matrix is :
+
+\begin{equation}
+\Gamma^{m} =
+\begin{pmatrix} 
+0 & \sigma^{m}\\
+\bar{\sigma}^{m} & 0 
+\end{pmatrix}
+\end{equation}
+
+One can easily see that this gamma matrix satisfy the Clifford algebra \eqref{cli}. The gamma matrix act on a 4 components spinor with index structure: 
+
+\begin{equation*}
+\Psi =
+\begin{pmatrix} 
+ \psi_{\alpha}\\
+\bar{\chi}^{\dot{\alpha}}   
+\end{pmatrix}
+\end{equation*}
+
+One can write the Dirac equation:
+\begin{subequations}
+\begin{equation}
+( \Gamma^{m}\partial_{m} + m )\Psi = 0
+\end{equation}
+\text{and in the weyl basis}
+\begin{equation}
+( (\bar{\sigma}^{m})^{ \dot{\alpha} \alpha}\partial_{m} + m )\psi_{\alpha} = 0
+\end{equation}
+\begin{equation}
+((\sigma^{m})_{\alpha \dot{\alpha}} \partial_{m} + m )\bar{\chi}^{\dot{\alpha}} =0
+\end{equation}
+\end{subequations}
+
+
+Remember also that the Lorentz generators were given by $S^{mn} = \frac{1}{4}[ \Gamma^{m}, \Gamma^{n}]$, and the Dirac component spinor transform as $\Psi \rightarrow \exp(\frac{1}{2}\omega_{mn}S^{mn})\Psi$. Then the Lorentz group generator in the spinor representation become:
+
+\begin{subequations}
+\begin{equation}
+(\sigma^{mn})^{\;\;\beta}_{\alpha} =\frac{1}{4} (\sigma^{m}\bar{\sigma}^{n} - \sigma^{n}\bar{\sigma}^{m})^{\;\;\beta}_{\alpha}
+\end{equation}
+\begin{equation}
+(\bar{\sigma}^{mn})^{\dot{\alpha}}_{\;\;\dot{\beta}} = \frac{1}{4}(\bar{\sigma}^{m}\sigma^{n} - \bar{\sigma}^{n}\sigma^{m})^{\dot{\alpha}}_{\;\;\dot{\beta}}
+\end{equation}
+\end{subequations}
+
+
+This matrices seem strange when one looks for the first time, remember they are made of Pauli Matrices, in particular:
+\begin{equation*}
+\sigma^{ij} = \bar{\sigma}^{ij} = -\frac{i}{2}\epsilon^{ijk}\sigma^{k} \quad \text{and} \quad
+\sigma^{0i} = -\bar{\sigma}^{0i} =\frac{1}{2}\sigma^{i}
+\end{equation*}
+
+these are rotations and boost respectively. The $\epsilon^{ijk}$ is the usual Levi-Civita symbol, and $i,j,k = 1,2,3$ with $\epsilon^{123} = 1$.  Note that rotations act the same in booth spinors as opposed for boost. The Lorentz transformation acts as:
+
+
+\begin{equation}
+\psi^{'}_{\alpha} = (e^{\frac{1}{2}\omega_{mn}\sigma^{mn}})_{\alpha}^{\;\;\beta} \psi_{\beta}
+\label{eq:4}
+\end{equation}
+\begin{equation}
+\bar{\psi}^{'\dot{\alpha}} = (e^{\frac{1}{2}\omega_{mn}\bar{\sigma}^{mn}})_{\;\;\dot{\beta}}^{\dot{\alpha}}\bar{\psi}^{\dot{\beta}} 
+\end{equation}
+
+
+
+Now let's make some checks and see that with these Lorentz transformation we get the right answers. We know what a rotation does on a vector $P^{m}$. Then if we use \eqref{eq:2} and multiply by $\bar{\sigma}^{m}$ and take the trace using \eqref{Trace} we get:
+
+
+\begin{equation}
+P^{'m} = -\frac{1}{2} \; \text{Tr} [\bar{\sigma}^{m}\mathbf{M}\sigma^{n}\mathbf{M^{\dagger}}]P_{n}
+\label{eq5}
+\end{equation}
+
+If we choose a rotation on z-axis:
+
+\begin{equation*}
+\mathbf{M} = e^{\omega_{12}\sigma^{12}} = e^{\frac{i}{2}\theta\sigma^{3}} = I\cos(\theta/2) + i\sigma^{3}\sin(\theta/2)
+\end{equation*}
+
+where we used the fact $\omega_{12} = -\omega_{21} $ that kills the $1/2$ in \eqref{eq:4} and then we choose  $\omega_{12} = - \theta$. Now that we have all the elements we can express \eqref{eq5} as:
+
+\begin{equation}
+P^{'m} = P^{m} \cos^{2}(\theta/2)  -\frac{1}{2}P_{n} \sin^{2}(\theta/2) \text{Tr} [\bar{\sigma}^{m}\sigma^{3}\sigma^{n}\sigma^{3}]   -\frac{i}{2}\sin(\theta/2)\cos(\theta/2)P_{n}\text{Tr} [\bar{\sigma}^{m}[\sigma^{3},\sigma^{n}]]
+\end{equation}
+
+
+
+with this expression and plus some sigma Trace identities and trigonometric one find:
+
+
+
+\begin{equation}
+P^{'0} = P^{0} \quad ; \quad \vec{P}^{'} = \begin{pmatrix} 
+\cos(\theta) & \sin(\theta) & 0\\
+-\sin(\theta) & \cos(\theta) & 0\\
+0 &	0	&	1
+\end{pmatrix} \vec{P} 
+\end{equation}
+
+
+That's our rotation matrix, it worked! Let me say the trivial fact that if $\theta = 2\pi$ then $\vec{P}^{'}=\vec{P}$. Now we do the same trivial statement for a spinor, under a full rotation $\psi^{'} = e^{\frac{i}{2} 2\pi\sigma^{3}}\psi = -\psi$, that's another way to see that it's a (1/2) 
+
+
+
+
+
+
+
+\begin{equation}
+a \, \overset{\eqref{eq:1a}}{=} \, b
+\end{equation}

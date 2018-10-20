@@ -1,0 +1,591 @@
+% !TEX root = ../Thesis.tex
+%*******10********20********30********40********50********60********70********80
+
+% For all chapters, use the newdefined chap{} instead of chapter{}
+% This will make the text at the top-left of the page be the same as the chapter
+
+
+
+
+\chap{Spinor Helicity Formalism}
+
+
+
+
+\section{Null momenta}
+
+
+We start by remembering (appendix A) that the Lorentz Group $SO(3,1) $ is isomorthic to $SL(2,\mathbb{C})$. A Lorentz vector  $p_{m}$ ($m= 0,1,2,3)$ can be constructed by the product of two spinors, one from $(1/2,0)$ representation and one from $(0,1/2)$. The spinor $\lambda_{\alpha}$, $\alpha= 1,2$, that transforms under $(1/2,0)$ are called left handed Chiral spinors and $\bar{\lambda}_{\dot{\alpha}}$, $\dot{\alpha} = \dot{1},\dot{2}$ that transforms under$(0,1/2)$ are called the right handed Chiral spinors.
+
+The map that take the Lorentz vector index $m$  to two spinors index ($\alpha\dot{\alpha}$)  is done by a linear combination of Pauli Matrices plus identity $[\sigma^{m}=(-I,\vec{\sigma})]$:
+
+\begin{equation}
+p_{\alpha\dot{\alpha}} = p_{m}\sigma^{m}_{\;\;\;\alpha\dot{\alpha}} = -p_{0}I +\vec{\sigma}\cdot \vec{p} 
+\label{eq.2.1}
+\end{equation}   
+
+As a consequence of  \eqref{eq.2.1} we get:
+
+
+\begin{equation}
+\det(p_{\alpha\dot{\alpha}}) = -p^{m}p_{m} 
+\end{equation}
+     
+the minus sign is due to the metric $\eta_{mn}= (-+++)$. Note that we are using $p$ to denote different objects, but you will be able to spot the difference by the context. Because we are interested in massless particles, $p^{2} = 0$ implies $\det(p_{\alpha\dot{\alpha}}) =0$. So $p$ has one eigenvalue equal to zero, the rank of the $2\times2$ matrix goes down $2\rightarrow 1$.	Then we can write the matrix $p$ as a product of two component spinors:
+\begin{equation}
+ p_{\alpha\dot{\alpha}} = \lambda_{\alpha} \bar{\lambda}_{\dot{\alpha}}
+ \label{eq.2.2}
+\end{equation}
+
+these spinors are usually called  helicity spinors (now you get  the chapter name). Looking at \eqref{eq.2.2} you could make the observation that $\lambda,\bar{\lambda}$ are not sufficient to determinate $p$, there is a scale freedom:
+
+\begin{equation}
+(\lambda,\bar{\lambda}) \rightarrow  (t\lambda,t^{-1}\bar{\lambda})\quad t \in \mathbb{C}^{*}
+\end{equation}  
+
+The momentum $p_{m}$ is real, so  $p_{\alpha\dot{\alpha}} =p_{\alpha\dot{\alpha}}^{*} \Rightarrow \bar{\lambda}_{\dot{\alpha}}^{*}= \lambda_{\alpha}$, and the scale parameter $t$ become just a phase $e^{i\theta}$. The spinors $(\lambda,\bar{\lambda})$ are not independent. This is the real world, but we are theoretical physicists and we can do almost everything, for example consider the case where the momentum is complex, then we get rid off the constrain $\bar{\lambda}_{\dot{\alpha}}^{*}= \lambda_{\alpha}$. Your mathematician friend would say that you are complexing the Lorentz group and tell you that it is locally isomorphic to $SO(3,1,\mathbb{C}) \cong SL(2,\mathbb{C})  \times SL(2,\mathbb{C})$  . The reasons to consider a complex momentum, will be clear when we start calculating scattering amplitudes, so hold up. Of course in the end of the day, we have to return to real world and set $p$ to be real. 
+
+Another way to make the spinors $(\lambda,\bar{\lambda})$ be independent, is to consider the Lorentz group with a different signature $\eta = (-+++) \rightarrow (--++) $, or we if you want to be dramatic, change a space dimension to a time one. We can use the fact that $SO(2,2) \cong SL(2,\mathbb{R})  \times SL(2,\mathbb{R})$, and write $(\lambda,\bar{\lambda})$ as two real independent spinors.(Appendeix A).
+
+A quick exercise is to count the degrees of freedom for each case. In complex momentum we have $4 \times2 - 2 = 6$ real parameters, the two is due to $\det p = 0$ gives two constraints (real and complex). Or for complex $(\lambda,\bar{\lambda})$ minus the scale $2\times 2 -1 =3 $ complex or 6 reals. In the real momentum case we have $ 4 - 1 = 3$ real parameters.
+
+Given two spinors $\lambda ,\mu $ the Lorentz invariant object  is:
+
+\begin{equation}
+\langle \lambda ,\mu \rangle  \equiv \varepsilon^{\alpha \beta} \lambda_{\alpha} \mu_{\beta} =\lambda_{\alpha} \mu^{\alpha}
+\label{eq.2.4}   
+\end{equation}
+
+where we use the antisymmetric tensor $\varepsilon^{\alpha \beta}$ defined as $\varepsilon_{12} = \varepsilon^{21} = -1 $ and $\varepsilon^{\alpha \beta} \varepsilon_{\beta\rho} = \delta^{\alpha}_{\;\;\rho}$ , to lower and raise the indices. From the definition \eqref{eq.2.4} and the tensor $\varepsilon^{\alpha \beta}$ the product $\langle \lambda ,\mu \rangle = -\langle \mu,\lambda  \rangle$ is antisymmetric. In particular, if  $\langle \lambda ,\mu \rangle = 0 $ implies $\mu \sim \lambda $.  This is true because $\lambda ,\mu$ are commuting variables, note that if they were anti commuting  $\langle \lambda ,\mu \rangle = \langle \mu,\lambda  \rangle$ as in the appendix.
+
+
+The same thing is valid for two dotted spinors:
+
+\begin{equation}
+[\lambda,\mu] \equiv \varepsilon^{\dot{\alpha} \dot{\beta}} \bar{\lambda}_{\dot{\alpha}} \bar{\mu}_{\dot{\beta}} =\bar{\lambda}_{\dot{\alpha}} \bar{\mu}^{\dot{\alpha}}
+\end{equation}
+
+
+Let's see how others objects looks in the spinor formalism. Given two null momentum $p^{\dot{\alpha} \alpha } = \lambda^{\alpha}\bar{\lambda}^{\dot{\alpha}}, \quad q_{\alpha\dot{\alpha}}=\mu_{\alpha}\bar{\mu}_{\dot{\alpha}}$ :
+
+\begin{equation}
+(p + q)^{2} = 2p\cdot q = 2\lambda^{\alpha}\bar{\lambda}^{\dot{\alpha}} \mu_{\alpha}\bar{\mu}_{\dot{\alpha}} =2\langle \lambda,\mu  \rangle [\lambda,\mu]
+\end{equation}
+
+For instance if we label different momentum by a number $p^{(1)},p^{(2)},p^{(3)},p^{(4)}...$ we can simplify even more the notation. Using the numbers to identity the momentum then write $(p^{(1)} + p^{(2)})^{2}=2 \langle 1,2 \rangle [1,2]$. This notation is common in the literature, and very elegant.
+
+Recall that the scattering amplitudes for gluons are described by momentum $p_{m}$ and  polarization vectors $\epsilon^{m}$. We already have $p$ in spinors, now we need the polarization vector. From Yang Mills Equation of motion in momentum space:
+
+\begin{equation}
+p \cdot \epsilon = 0 
+\end{equation}  
+
+this represents the fact that the polarization vector  $\epsilon^{m}$ does not have longitudinal components and it has a gauge symmetry $\epsilon^{m} \rightarrow \epsilon^{m} + bp^{m} $. To construct  $\epsilon^{m}$ as a bi-spinor we can guess the result using its symmetries. Also there is not so many objects to use. Let me define $\epsilon^{+}_{\aad} = d^{-1} \mu_{\alpha} \lambdab_{\alphad}$ where $d$ is a Lorentz invariant object, and $\mu_{\alpha}$ is an arbitrary spinor. The polarization has to be invariant under a scale  $\mu \rightarrow a\mu$ because $\mu$ is arbitrary. Thus $d \sim \mu_{\alpha}$, but $d$ is Lorentz invariant, and the only object that we have to contract is $\lambda^{\alpha}$. The result is: 
+
+\begin{equation}
+\epsilon^{+}_{\aad} = \frac{\mu_{\alpha} \lambdab_{\alphad}}{\langle\mu,\lambda \rangle} 
+\label{eq.2.6}
+\end{equation}
+
+Just by looking at \eqref{eq.2.6} we see that $\epsilon^{+}_{\aad} p^{\ada} = 0 $ due $[\lambda,\lambda ] = 0$. The gauge transformation($\epsilon^{m} \rightarrow \epsilon^{m} + bp^{m}$)  is now translated to a spinor shift ($\mu_{\alpha} \rightarrow a\mu_{\alpha} + b\lambda_{\alpha} $). Then we get:
+
+\begin{equation}
+\epsilon^{+}_{\aad} \rightarrow \epsilon^{+}_{\aad} + b\frac{\lambda_{\alpha}\lambda_{\alphad}}{\langle\mu,\lambda \rangle}
+\end{equation}
+
+that is what we expect. We know that the polarization vector (the photon) has two degrees of freedom. So we have another polarization. Doing the same process we find:
+
+\begin{equation}
+\epsilon^{-}_{\aad} = \frac{\mub_{\alphad} \lambda_{\alpha}}{[\mu,\lambda ]} 
+\label{eq.2.7}
+\end{equation}
+
+Note that this vectors are normalized $\epsilon^{-} \cdot \epsilon^{+} = 1$.
+
+Now we return to the scaling and make the connection to helicity. Helicity is the quantum number that tell us how the spinor change under a rotation. It is the spin for a massless particle. The helicity is a  Lorentz conserved quantity. Can be define as the projection of the spin operator $\vec{S}$ in to the 3-momentum $\vec{p}$
+
+
+\begin{equation}
+h \equiv \frac{\vec{S} \cdot \vec{p}  }{|\vec{p}|}
+\end{equation}
+
+
+In the massless case the particle is moving at the speed of light. So we can not do a boost that invert the direction of the rotation.
+
+
+Let's write the  massless Dirac equation in terms of Weyl basis:
+
+\begin{align}
+(\sigmab^{m})^{\ada}\partial_{m} \psi_{\alpha} = 0
+\label{eq.2.8}
+\\
+(\sigma^{m})_{\aad}\partial_{m} \bar{\psi}^{\alphad} = 0
+\label{eq.2.9}
+\end{align}
+
+
+
+
+we see that if we multiply by $\sigma^{n}_{\ada}\partial_{n}$ we get the massless Klein-Gordon equation (using Tr$ \sigma^{n}\sigmab^{m}=-2\eta^{mn}$):
+
+\begin{equation}
+\partial^{m}\partial_{m} \psi_{\alpha} = 0
+\end{equation}
+
+So it has a plane wave solution $\psi_{\alpha} = L_{\alpha} e^{ip \cdot x} $ , for a constant $L_{\alpha}$  Where from \eqref{eq.2.8} $L_{\alpha}$ must satisfy $L_{\alpha}p^{\ada}= \langle L,\lambda \rangle \lambdab^{\alphad} =  0$ that implies $L_{\alpha} = c \lambda_{\alpha}$. We get the wave function
+
+
+\begin{equation}
+ \psi_{\alpha} = c\lambda_{\alpha}e^{ip^{\ada} x_{\aad}}
+\end{equation}
+
+
+
+ The spinor transforms as a rotation by angle $\theta$ around the $\vec{n}$ direction as(appendix),
+
+\begin{equation}
+ \psi_{\alpha} = e^{i\frac{\vec{\theta} \cdot\vec{n}}{2}}\psi_{\alpha}
+\end{equation}
+
+this implies that $\lambda$ carries half units of angular momentum. Now if we define the scalar parameter $t \equiv e^{i\frac{\vec{\theta} \cdot\vec{n}}{2}}$ we see that the wave function scales as $t^{-2h}$ if $h = -1/2$. So we say that $\lambda$ has negative helicity  $h = -1/2$.
+
+We can go on and find the wave function for $\bar{\psi}^{\alphad}$. This will define a wave function for helicity $h = +1/2$. Because $ \bar{\psi}_{\alphad}$ transforms as the complex conjugate of $\psi_{\alpha}$. Thus the $i$ on the rotation give a minus sign, and flips the $h$.
+
+\begin{equation}
+ \bar{\psi}_{\alphad} = c\lambdab_{\alphad}e^{ip^{\ada} x_{\aad}}
+\end{equation}
+
+
+Now we can understand why the polarization vector were label by $\epsilon^{+},\;\epsilon^{-}$. Under the scaling $(\lambda,\lambdab) \rightarrow( t\lambda,t^{-1}\lambdab) $ the polarization vectors scale as 
+
+\begin{equation}
+(\epsilon^{+},\;\epsilon^{-}) \rightarrow (t^{-2}\epsilon^{+},\;t^{+2}\epsilon^{-}) = (t^{-2h}\epsilon^{+},\;t^{-2h}\epsilon^{-})  
+\end{equation}
+
+
+then $\epsilon^{+}$ has helicity $+1$ and $\epsilon^{-}$ has helicity $h=-1$. 
+
+
+\textcolor{red}{show that indeed these polarization are $+, -$ helicity}
+
+
+
+Consider a function that transforms as $f(e^{i\theta}x) = e^{i\theta h}f(x)$. We can thing the function as $f(x) = x^{h}$ and this satisfy $x \partial_{x} f(x) = h f(x)$. A wave function $\psi(\lambda,\lambdab)$  will satisfy a similar equation
+
+
+\begin{equation}
+\left( \lambda^{\alpha} \frac{\partial}{\partial\lambda^{\alpha}} - \lambdab^{\alphad} \frac{\partial}{\partial\lambdab^{\alphad}} \right)\psi(\lambda,\lambdab) = -2h \psi(\lambda,\lambdab)
+\end{equation}
+
+sometimes this constrain is called the auxiliary condition.
+
+\section{Scattering Amplitudes}
+
+
+The scattering amplitude $A$ for $n$ gluons is a functions of the external momentum (the asymptotic state limit) $p_{1}, \dots, p_{n}$ and the polarization vectors $\epsilon_{1}, \dots ,\epsilon_{n} $. By Lorentz Invariance of  $A$,  we only have combination of Lorentz Invariance objects ($p_{i}\cdot p_{j}$, $\epsilon_{i}\cdot p_{j}$,  $\epsilon_{i}\cdot \epsilon_{j} $). As we saw we can specify a particle with spin by its momentum $p_{\aad}^{(i)} = \lambda_{\alpha}^{(i)}\lambdab_{\alphad}^{(i)}$ and helicity $h^{(i)}$. Thus the amplitude is a function of Lorentz invariant object expressed in term of ($\lambda_{\alpha},\lambdab_{\alphad}, h$)
+
+\begin{equation}
+A = A(\lambda_{\alpha}^{(1)},\lambdab_{\alphad}^{(1)},h^{(1)}; \dots  ;\lambda_{\alpha}^{(n)},\lambdab_{\alphad}^{(n)},h^{(n)}  )
+\end{equation}
+
+Recall that under crossing we have $p \rightarrow -p$ and $\epsilon \rightarrow \epsilon^{*} $ or $\epsilon^{+} \rightarrow \epsilon^{-} $. Then we can treat as all particle as outgoing and then use crossing to find the other helicity amplitudes. 
+
+Now in the same spirit the amplitude is a function of the spinors. Then it also satisfy a auxiliary condition for each particle $\lambda^{(i)},\lambdab^{(i)}$:
+
+\begin{equation}
+\left( \lambda^{\alpha(i)} \frac{\partial}{\partial\lambda^{\alpha(i)}} - \lambdab^{\alphad(i)} \frac{\partial}{\partial\lambdab^{\alphad(i)}} \right)A(\lambda^{(i)},\lambdab^{(i)},h^{(i)}) = -2h^{(i)}A(\lambda^{(i)},\lambdab^{(i)},h^{(i)})
+\end{equation}
+
+
+\textcolor{red}{Add a picture with the amplitude and labels}
+
+We can write the auxiliary condition in another form. It is easy to see how the amplitude change under the scaling
+
+\begin{equation}
+A(t\lambda^{(i)},t^{-1}\lambdab^{(i)},h^{(i)}) = t^{-2h^{(i)}} A(\lambda^{(i)},\lambdab^{(i)},h^{(i)})
+\label{eq.2.15}
+\end{equation}
+
+That is to say that the amplitude transforms homogeneously with weight $-2h^{(i)}$, where $h^{(i)}$ is the helicity of the particle $i$. 
+
+\section{MHV Amplitudes}
+
+
+To appreciate  the power of the spinor helicity formalism let us consider tree level scattering amplitudes for the Yang-Mills Theory. The Yang Mills action is 
+
+
+\begin{align}
+S_{YM} =  -\frac{1}{2}\int dx^{4} Tr(F^{mn}F_{mn}) \\
+\textbf{with}\\
+F_{mn} \equiv  F^{A}_{mn} T^{A} = \partial_{[m}A_{n]}^{A} T^{A} -igA_{m}^{B}A_{n}^{C}[T^{B},T^{C}]
+\label{eq.2.11}
+\end{align}
+
+ and $T^{A}$ are generators of the  gauge group $SU(N)$ with $A = 1,...N^{2} -1$, counting the number of generators. The generators satisfy the algebra with the standard normalization:
+
+
+\begin{equation}
+[T^{A},T^{B}] = i f^{ABC}T^{C} \quad ; \quad Tr (T^{A}T^{B}) = \frac{1}{2}\delta^{AB}
+\label{eq.2.10}
+\end{equation}
+
+ where $f^{ABC}$ is the structure constant and it is antisymmetric in all indices. From \eqref{eq.2.10} $f^{ABC} = -2iTr([T^{A},T^{B}]T^{C})$. 
+ 
+ 
+ 
+ Amplitudes for the gluons will have products of Color(generatos) Traces. But in the end we have a simplification (only single traces). The full amplitude can be written as a sum over the cyclic permutation of the Color Traces. To convince you that this really happen recall that for the gauge group $SU(N)$ we have this identity ($M,N$ are combination of $T's$):
+ 
+ \begin{align}
+ Tr(MT^{E})Tr(NT^{E}) = \frac{1}{2}Tr(MN) 
+ \end{align} 
+ 
+ where we used the fact that $Tr(T^{A}) = 0$ and $E's$ are summed. From $Tr(F^{2})$ we get two types of self interaction term $A^{A}A^{B}\partial_{m} A^{C}\sim g p_{m} Tr([T^{A},T^{B}]T^{C}) $ and $A^{A}A^{B}A^{C}A^{D} \sim Tr([T^{A},T^{B}][T^{C},T^{D}]$. The propagator clue together  two vertex by a $\delta ^{AB}$. Then  color indices are summed over and this kind of term reduce to a single trace.
+ 
+ 
+ 
+ In the end, for $n$ particles we have cyclic permutation of $Tr(T^{A_{1}}T^{A_{2}}...T^{A_{n}})$ and the amplitude can be factorize as:
+ 
+ 
+ \begin{equation}
+ A_{n} = g^{n-2}(2\pi)^{4}\delta(\sum^{n}_{i=1} p_{i})\mathcal{A}(p_{1},h_{1},... ,p_{n},h_{n})Tr(T^{A_{1}}T^{A_{2}}...T^{A_{n}}) + permutations
+ \label{eq.2.16}
+ \end{equation}
+
+
+We can concentrate in the color free Amplitude $\mathcal A(1,2,\dots ,n)$. Dimension analysis is a very power full tool. Let's use it to have a feeling how the Tree-Amplitude behaves. From \eqref{eq.2.11} we have $[dx^{4}] = M^{-4}$;  $[F] = M^{2}$ ; $[\partial] = M^{1}$ ; $[A] = M^{1}$ ; $[g] = M^{0}$, where $M$ is the mass dimension. 
+
+We have two vertices, the cubic vertex $V_{3} \sim gf^{ABC} p$, from $AA\partial A$ that has mass dimension $1$ ($[V_{3}] = M^{1}$). And the quartic  vertex $V_{4} \sim g^{2} f^{2}$, from $A^{4}$ that has mass dimension zero ($[V_{4}] = M^{0}$). From the picture is quit easy to see that the number of $V_{3}$ is always greater by one the number of propagators $P$ (please do not get confuse with another $P$, I know that my imagination is not good). Also for $n$ particle scattering, the number of $V_{3}$ is $n -2$. The mass dimension of the propagator is $-2$ ($[P] = M^{-2}$).
+
+
+\textcolor{red}{Add the picture with the diagrams} 
+
+
+
+In conclusion the mass dimension of $n$ particle scattering amplitude is 
+
+\begin{equation}
+[\mathcal{A}_{n}] = \frac{M^{n-2}}{(M^{2})^{n-3}} = M^{4-n}
+\end{equation}
+
+
+A important note is that, in the numerator, the powers of momenta ($M$) can not be greater than $n-2$. 
+
+A general tree amplitude is a product of Lorentz scalars 
+
+
+
+\begin{equation}
+[\mathcal{A}_{n}] = \sum_{diagrams} \frac{\sum \prod(\epsilon_{i} \cdot \epsilon_{j}) \prod(\epsilon_{i} \cdot p_{j})\prod(p_{i} \cdot p_{j})}{\prod P^{2}}
+\label{eq.2.12}
+\end{equation}
+
+in term of spinors the polarization \eqref{eq.2.6}-\eqref{eq.2.7} products take the form 
+
+\begin{equation}
+\epsilon_{i}^{+} \cdot \epsilon_{j}^{+}   \propto \langle \mu_{i} \mu_{j} \rangle \quad;\quad \epsilon_{i}^{-} \cdot \epsilon_{j}^{-}   \propto [ \mu_{i} \mu_{j} ] \quad ; \quad \epsilon_{i}^{-} \cdot \epsilon_{j}^{+}   \propto \langle \lambda_{i} \mu_{j} \rangle [\mu_{i}\lambda_{j} ]
+\label{eq.2.13}
+\end{equation}
+ 
+ where $\mu_{i}$ represents the gauge freedom that we have. Finally we can attack the amplitude with all the tools and information. 
+ 
+ Let us start with all  plus  polarization amplitude $\mathcal{A}_{n}(1^{+}2^{+} \dots n^{+})$. For $n$ particles we have $n$ polarization $\epsilon^{+}$. From \eqref{eq.2.13} we see that if we choose $\mu_{1} =\mu_{2}= \dots = \mu$ the product $\prod(\epsilon_{i}^{+} \cdot \epsilon_{j}^{+}) = 0$ due  $ \langle \mu \mu \rangle = 0$ . Then the only way for the amplitude not to be zero is to have $\prod(\epsilon_{i} \cdot p_{j})$. But as we saw the amplitude in the numerator have $n$ polarizations and need $n$ momenta to create a Lorentz scalar. But it can have only $n-2$ powers of momenta $p's$, thus it is zero. You see that? In few lines we were able to evaluate ALL the plus helicity amplitudes. That's powerfull.
+ 
+ We can continue, and see what else we learn about the amplitude with only one negative helicity, $\mathcal{A}_{n}(1^{+} \dots k^{-}\dots n^{+})$. Again we use the freedom that we have and choose $\mu_{1} =\mu_{2}= \dots = \lambda_{k}$ then all the terms $\epsilon_{i}^{+} \cdot \epsilon_{j}^{+}$ vanish where $i,j \neq k$. And from $\epsilon_{k}^{-} \cdot \epsilon_{j}^{+}   \propto \langle \lambda_{k} \mu_{j} \rangle [\mu_{k}\lambda_{j}] $ we also see that it is zero. Thus we get the same problem as before. We need $n$ powers of momenta and we can only have $n-2$. We conclude that $\mathcal{A}_{n}(1^{+} \dots k^{-}\dots n^{+}) = 0$.
+ 
+ Now that we got this far let us do more, and calculate $\mathcal{A}_{n}(1^{-},2^{-},3^{+} \dots \dots n^{+})$. Choosing $\mu_{i} = \lambda_{1}$ for $i \geq 3$, then $\epsilon_{i}^{+} \cdot \epsilon_{j}^{+} =0$ for $i,j\geq3$. Set $\mu_{1} = \mu_{2} =\lambda_{k}$. Then the only  non zero polarizations are    $\epsilon_{2}^{-} \cdot \epsilon_{i}^{+} \propto \langle \lambda_{2}\mu_{i} \rangle[\mu_{2}\lambda_{i}] $ for $i \geq 3 \quad \& \quad i\neq k $. Now we see that we can have a term with two polarization, and we can fill in with  $n-2$ momentum contraction $\epsilon_{i} \cdot p_{j}$. Thus we don't have a vanishing amplitude.
+ 
+ This Amplitude $\mathcal{A}_{n}(1^{-},2^{-},3^{+} \dots  n^{+})$ is called the Maximally Helicity Violating (MHV). Before we continue let understand this name. Because we choose all the particle to be outgoing, to see the physical ($2 \rightarrow n-2$ ) scattering, we have to use crossing. Recall that crossing symmetry interchange the helicity between the incoming particle and the outgoing particle. Then the first amplitude $\mathcal{A}_{n}(1^{+},2^{+} \dots n^{+})$ describes $1^{-}2^{-} \rightarrow 3^{+} \dots n^{+}$ scattering, that's two particle incoming and $n-2$ particles outgoing. This 'violate' the helicity conservation.  We can do the same thing for the other amplitudes. Then $\mathcal{A}_{n}(1^{+},2^{-} \dots n^{+})$ describes $1^{-}2^{+} \rightarrow 3^{+} \dots n^{+}$  also violet but it is zero. Finally $\mathcal{A}_{n}(1^{+},2^{+},3^{-},4^{-} \dots n^{+})$ describes $1^{-}2^{-} \rightarrow 3^{-},4^{-},5^{+} \dots n^{+}$ is the processes that can be maximal violated that is not zero.
+ 
+ Now that we understand the name, let us jump to a final result. The MHV amplitude has a nice closed formula that has postulated by Parke $\&$ Taylor and proved by Berends and Giele. The prove was using off-shell recursion method. This formula can be proven by the BCFW recursion Relations that use on-shell methods and complex momenta. But this kind of Technique is beyond the scope of this thesis. Then the tree-level amplitude for two negative helicity particles ($\{p^{r},h^{r} = -\},\{p^{s},h^{s} = -\} $) and $n-2$ positive helicity particles is (without the color factor and momentum conservation) 
+ 
+ \begin{equation}
+ \mathcal{A}(r^{-},s^{-}) = \frac{\langle \lambda_{r},\lambda_{s}\rangle ^{4}}{\prod_{i=1}^{n}\langle \lambda_{i},\lambda_{i+1}\rangle}
+ \label{eq.2.14}
+ \end{equation}
+ 
+ 
+
+This is a very elegant and simple formula. Unfortunately we can not prove this formula here, but we can cheek if the symmetries that we found hold. The Lorentz is trivial because \eqref{eq.2.14} is made of Lorentz Invariant objects $\langle \lambda_{i},\lambda_{j},\rangle$. The scaling is also simple. We note that the denominator has two spinor for each particle $(i)$, \textit{i.e.}, $\prod\langle \lambda_{i},\lambda_{i+1},\rangle \sim \lambda^{(i)}\lambda^{(i)}$. Thus under the scaling $\lambda^{(i)} \rightarrow t \lambda^{(i)}$ the amplitude get a factor of $t^{-2}$. And in the numerator a factor of $t^{4}$, but note that the numerator gets this factor only for negative helicity $r,s$.
+
+Then for a particle with positive helicity $h = +1$ $(i) \neq r,s$ the amplitude scales as
+
+\begin{equation}
+\mathcal{A}(r^{-},s^{-},ti^{+}) =t^{-2}\mathcal{A}(r^{-},s^{-},i^{+}) = t^{-2h^{(i)}}\mathcal{A}(r^{-},s^{-},i^{+})  
+\end{equation}
+and for a particle with negative helicity $h^{s}= -1$
+\begin{equation}
+\mathcal{A}(r^{-},ts^{-}) =t^{+2}\mathcal{A}(r^{-},s^{-}) = t^{-2h^{(s)}}\mathcal{A}(r^{-},s^{-})  
+\end{equation}
+
+As we expected from the auxiliary condition \eqref{eq.2.15}. Another symmetry that Yang-Mills Theory have is conformal symmetry. Hold up to the next chapter that we will explain what conformal transformations are and prove that the Yang-Mills and  MHV amplitude are conformal invariant.
+We are going to see that the reason for the amplitudes  with one or zero flipped helicity are zero, is a hidden symmetry a super symmetry in the Super Yang-Mills theory (that is a lot of super- words).
+
+ \section{$\mathcal{N}$ =4 Super Yang-Mills Theory}
+ 
+ 
+ 
+We are interesting in the supersymmetric version of Yang Mills, but to get there I will make a review of supersymmetry, but a very brief one. So we are in the same page.
+Supersymmetry is a very interesting subject and we hope to find it in the LHC soon. The supersymmetry algebra is the only graded Lie algebra of symmetries of the S-matrix in a relativist quantum field theory, this result was proven by Haag, Sohnius and Lopuszanki. In a way, we are enlarging the Poicar\'{e} algebra by adding fermionic generators ($Q,\bar{Q}$). These fermionic generators (Grassmann) propose a symmetry between fermionic and bosonic fields.
+The supersymmetry algebra is given by 
+
+\begin{equation}
+\{Q_{\alpha}^{A},\bar{Q}_{\alphad B}\} = 2 \sigma_{\aad}^{m}P_{m} \delta^{A}_{\;\;B} \quad \quad \{Q_{\alpha}^{A},Q_{\beta}^{B}\} = \varepsilon_{\alpha\beta} Z^{AB} 
+\label{eq.2.17}
+\end{equation}
+
+
+where $m$ and $\aad$ are the usual Lorentz and spinor index respectively. The index $A$
+labels the number of supersymmetries, runs from $1 \dots \mathcal{N}$. Thus the total number of supercharges is $l \times \mathcal{N}$, $l$ is the dimension of spinor representation. The $\bar{Q}_{\alphad}  \equiv (Q_{\alpha})^{\dagger} $ is the adjoint of operator of $Q_{\alpha}$. The $Z^{AB} = -Z^{BA} $ are called the central charges and only exist for $\mathcal{N} > 1$, because they are antisymmetric. But they are zero in the massless case\footnote{$\{Q_{2}^{A},\bar{Q}_{\dot{2}}^{B}  \} =0 \Rightarrow \langle\psi |\bar{Q}_{\dot{2}}^{B} Q_{2}^{A} |\psi \rangle  =0 $ which implies that $Q_{2}^{A} |\psi \rangle  =0$. Then $Z^{AB}$ is zero since $Q_{2}^{A}=0$ }.
+
+Note that the algebra is preserved under a $U(\mathcal{N})$ transformation called R-Symmetry:
+
+\begin{equation}
+Q_{\alpha}^{\prime A} = R^{A}_{\;\;B}Q_{\alpha}^{B} \quad \bar{Q}_{\alphad A}^{\prime } = R^{-1 B}_{\;A}\bar{Q}_{\alphad B} \quad  \quad R^{A}_{\;\;B}  \in U(\mathcal{N})
+\end{equation}
+
+Let us analyze the massless spectrum in four dimensions. In the frame $P_{m} = (-E,0,0,E)$ we have the algebra \eqref{eq.2.17}
+
+\begin{equation}
+\{Q_{\alpha}^{A},\bar{Q}_{\alphad B}\} = \begin{pmatrix} 
+4 & 0\\
+0 & 0  
+\end{pmatrix} \delta^{A}_{\;\;B} 
+\end{equation}
+
+
+
+
+In the upper side we can define the creation and annihilation operators $a^{\dagger}_{A},a^{A}$ by 
+
+\begin{equation}
+a^{A} = \frac{Q_{1}^{A}}{2\sqrt{E}} \quad ; \quad a^{\dagger}_{A} = (a^{A})^{\dagger} = \frac{\bar{Q}_{\dot{1}A}}{2\sqrt{E}}
+\end{equation}
+
+
+
+with this normalization we get $\{a^{A},a^{\dagger}_{B}\}= \delta^{A}_{\;\;B}$. We can use ($a^{\dagger}_{A},a^{A}$) to raise and lower the helicity of a state by $\frac{1}{2}$. So we know how to create the hilbert space. We start with the highest helicity $h_{max}$ state $a^{\dagger}_{A} |h\rangle = 0 $ and use the annihilation operator to decrease the helicity.
+
+\begin{equation}
+ |h\rangle  \quad , a^{A} |h\rangle  \quad ,  a^{A_{1}} \cdots a^{A_{\mathcal{N}}} |h\rangle 
+\end{equation}
+
+The highest  helicity is $h_{max} = h_{min} + \frac{\mathcal{N}}{2} $, thus we have $2^{\mathcal{N}}$ states. We can see that by looking the string of $a^{A_{1}}...a^{A_{\mathcal{N}}}$ and note that in each space we can have or not a $a^{A_{i}}$. Each state are $\binom {\mathcal{N}} {n}$ degenerate, where $n$ is the number of $a^{A_{i}}$ in the state.
+
+
+
+If we want to keep helicity $|h| < 1$ than the $\mathcal{N} = 4$ is the maximal amount of supersymmetry that we can have in four dimension. And that is the Theory that we want to study. One interesting fact is that CPT theories usually double the number of states, because it needs the opposite helicity. But our theory is self-dual CPT, \textit{i.e.} it has $h= \pm 1 ;\;\pm 1/2$. The spectrum can be summarize in the table \ref{Tb.2.1}.
+
+\begin{table}[h!]
+  \centering
+    \begin{tabular}{ |c|c|c|c } 
+   \hline
+   states $|h \rangle$								& Number of states 			& Name \\ 
+   \hline
+   $|1 \rangle $									& $1$ 	& gluon   	\\
+   $a^{A}|h \rangle = |1/2 \rangle$ 	   			& $4$ 	& gluion 	\\ 
+   $a^{A}a^{B}|h \rangle = |0 \rangle$ 	   			& $6$ 	& scalar 	\\ 
+   $a^{A}a^{B}a^{C}|h \rangle = |-1/2 \rangle$ 		& $4$ 	& anti-gluion 	\\ 
+   $a^{1}a^{2}a^{3}a^{4}|h \rangle = |-1 \rangle$ 	& $1$ 	& gluon 	\\ 
+ \hline
+  
+  \end{tabular}
+ \caption{Super Yang Mills $\mathcal{N} =4$ Spectrum }
+   \label{Tb.2.1}
+	\end{table}
+	
+	
+The action that has this spectrum can be written compactly as a $\mathcal{N} = 1$ in ten dimension
+
+\begin{equation}
+S_{YM} = -\frac{1}{4g_{YM}^{2}}  \int dx^{10} Tr \left(F_{MN}F^{MN}  -2i\bar{\psi} \Gamma^{M}D_{M}\psi \right)
+\label{eq.2.18}
+\end{equation}
+	
+
+$M,N$ runs from ($0,\dots ,9$) and $\psi$ is a $10d$ Majorana-Weyl spinor that has the minimal representation $16$ real degrees of freedom. The $\Gamma^{M}$ are the gamma matrices in $10d$. By dimension reduction $(M) \rightarrow (m,i)$ we get the $\mathcal{N} =4 \quad d=4$ Super Yang-Mills theory. Where $m$ run from $0$ to $3$ is the $4d$ Lorentz index and $i$ is the $6$ compacted dimensions. To see that is true, note that  \eqref{eq.2.18} has $\mathcal{N} \times l = 1 \times 16$ super charges ( $l$ is the spinor dimension), and no fields are higher that spin 1. The only theory  in 4 dimension that has the same properties is $\mathcal{N} =4$ SYM. 
+
+After the dimension reduction, the action for $\mathcal{N} = 4$ SYM in $d=4$ become 
+
+
+\begin{equation}
+S_{YM} = - \frac{1}{2g_{YM}^{2}} \int dx^{4} \left( \frac{1}{2}(F^{mn})^{2} + (D_{m}X^{i})^{2} -[X^{i},X^{j}]^{2} + i\bar{\psi}^{I}\gamma^{m}D_{m}\psi^{I} +  \bar{\psi}^{I}\Gamma^{i}_{IJ}[X^{i},\psi^{J}]  \right)  
+\end{equation}
+
+Here $(field)^{2}$ means the proper contraction of indices. The $\psi^{I} $ are four $4d$ Weyl spinors ($I = 1 \dots 4$) , $\gamma^{m}$  the $4d$ gamma matrices, and $\Gamma^{i}_{IJ}$ the gamma matrices for $SO(6)$. Also the $X^{i}$ are six real scalars, which $i$ labels the $SO(6)$ global R-symmetry. This scalars come from the gauge field under the dimension reduction $A^{M} \rightarrow A^{m} + X^{i}$. All the fields $(A^{m},X^{i},\psi^{I})$ are in the adjoint of the gauge group (color group) which we choose to be $SU(N)$, \textit{i.e.} $A^{m} \equiv A^{m(a)}T^{(a)}$ where $a = 1, \dots ,N^{2}-1$. Please do not get confuse with $N$- number of the gauge group $\&$ $\mathcal{N}$- number of supersymmetries.
+
+
+It is convenient to rewrite the $X^{i}$ six real scalars as six complex field $\phi^{IJ}= -\phi^{JI}$ with $I,J = 1,\dots 4$ transforming in the fully anti-symmetric 2-index representation of $SU(4)$. It also has to satisfy the condition $\bar{\phi}_{IJ} =\frac{1}{2}\epsilon_{IJKL}\phi^{KL}  $. 
+
+Remember that the R-Symmetry of the algebra was $U(4) =SU(4) \times U(1) $, for $\mathcal{N} =4$............
+
+
+\subsection{On-shell Superspace and Superamplitudes}
+
+
+
+
+The on-shell degrees of freedom of $\mathcal{N} =4$ SYM can be group together by an on-shell chiral superfield $\Phi$. If we introduce the Grassmann odd variables $\eta_{A}$ labeled by the $SU(4)$ index $A = 1 \dots 4$, the table \ref{Tb.2.2} can be grouped  in
+
+
+\begin{equation}
+\Phi(p,\eta)= g^{+}(p) + \eta_{A}\psi^{A}(p) - \frac{1}{2!}\eta_{A}\eta_{B}S^{AB}(p) -\frac{1}{3!}\eta_{A}\eta_{B}\eta_{C}\psi^{ABC}(p) + \frac{1}{4!}\eta_{A}\eta_{B}\eta_{C}\eta_{D}\epsilon^{ABCD}g^{-}(p)
+\end{equation}
+
+  \begin{table}[h!]
+  \centering
+  \begin{tabular}{ |c|c|c|c| } 
+   \hline
+    Fields  		& Helicity 	& Name(Type)	 		& $SU(4)_{R}$ representation \\
+   \hline
+   $g^{+}$			& $1$ 		& gluon   	(B)		& singlet					\\
+   $\psi^{A}$ 	   	& $1/2$ 	& gluion 	(F)		& fudamental ($\mathbf{4}$)				\\ 
+   $S^{AB}$ 	 	& $0$ 		& scalar 	(B)		&	anti-symmetric ($\mathbf{6}$)		\\ 
+   $\psi^{ABC} \sim \bar{\psi}_{A} $ 	& $-1/2$ 	& anti-gluion (F)	&  anti-fund ($\bar{\mathbf{4}}$)		\\ 
+   $g^{-}$ 			& $-1$ 		& gluon 	(B)	&	singlet 				\\ 
+ \hline
+  \end{tabular}
+  \caption{Super Yang Mills spectrum and its global R-symmetry transformation }
+  \label{Tb.2.2}
+	\end{table}
+	
+
+
+The super amplitude is parametrized by the external super legs that depends on the usual helicity spinors plus the new grassmann parameter $\{\lambda_{\alpha},\lambdab_{\alphad},\eta_{A}\}$. We can think of $\Phi_{i}\equiv\Phi(p_{(i)},\eta_{(i)})$ as the super-wavefunction for the $i'th$ external particle of the super amplitude $\mathbb{A}_{n}(\Phi_{1},\Phi_{2},\dots , \Phi_{n})$. In the same spirit of  super space formalism, the super amplitude is to be understood as the power series expansion in $\eta$. The $SU(4)_{R}$-symmetry requires that the external states form a  $SU(4)$ singlet. For example, the  amplitudes from the previous section can be extract as
+
+
+
+
+\begin{align}
+&\mathbb{A}_{n} \big|_{\eta^{0}}  = A_{n}(1^{+},2^{+},\dots,n^{+}) \label{eq.2.19}\\ 
+&\mathbb{A}_{n} \big|_{\eta^{4}_{1}}  = A_{n}(1^{-},2^{+},\dots,n^{+}) \label{eq.2.20}  \quad \quad \quad \quad \eta^{4}_{i} =\eta_{i1}\eta_{i2}\eta_{i3}\eta_{i4} \\
+&\mathbb{A}_{n} \big|_{\eta^{4}_{1}\eta^{4}_{2}}  = A_{n}(1^{-},2^{-},3^{+}\dots,n^{+}) 
+\end{align}
+
+
+
+We could also extract using Grassmann integrals. If we define the helicity operator 
+
+\begin{equation}
+h_{i} = 1-\frac{1}{2}\eta_{A}^{i}\frac{\partial}{\partial\eta_{A}^{i}} 
+\end{equation}
+
+when $h_{i}$ acts on each component of the superfield $\Phi_{i}$  it gives the helicity of each particle. For example:
+
+\begin{equation}
+h_{i}g^{+} =  +1 g^{+}(p)  \quad ; \quad h_{i}\eta_{A}\psi^{A}(p) = +\frac{1}{2}\eta_{A}\psi^{A}(p)
+\end{equation}
+
+Using the same logic, when $h_{i}$ acts on  the Superamplitude gives the helicity of the particle. One can see this because $h_{i}\mathbb{A}_{n}(\Phi_{i}) = (1 -\frac{K}{2})\mathbb{A}_{n}(\Phi_{i}) $ where $K$ counts the degree in $\eta_{i}$. When $K=0$ it represents the positive gluon $ g^{+}$ and for $K=4$ it represents the negative gluon $g^{-}$.
+
+
+Let us see how the Supersymmetry invariance of the Superamplitude imposes that the  two amplitudes \eqref{eq.2.19}-\eqref{eq.2.20} are zero. The Supersymmetry generators in the on-shell Superspace are
+
+\begin{equation}
+Q^{A}_{\alpha} = \sqrt{2}\sum_{i=1}^{n}\lambda_{\alpha}^{(i)}\eta^{A}_{(i)} \quad ; \quad \bar{Q}_{\alphad B} = \sqrt{2}\sum_{i=1}^{n}\lambdab_{\alphad}^{(i)}\frac{\partial}{\partial\eta^{B}_{(i)}}
+\end{equation}
+
+here we are summing over all the external particle ($i=1 ,\dots n$). These generators satisfy  the algebra  
+
+
+\begin{equation}
+\{Q_{\alpha}^{A},\bar{Q}_{\alphad B}\} = 2P_{\aad} \ \delta^{A}_{\;\;B} \quad; \quad P_{\aad} = \sum_{i=1}^{n} \lambda_{\alpha}^{(i)}\lambdab_{\alphad}^{(i)}
+\end{equation}
+
+where $P_{\aad} $ is the translation generator for the external particles. Recall that the Amplitudes have the delta of momentum conservation $\delta^{4}(\sum_{i=1}^{n} \lambda_{\alpha}^{(i)}\lambdab_{\alphad}^{(i)} )$ on it. Thus 
+
+
+
+\begin{equation}
+\{Q_{\alpha}^{A},\bar{Q}_{\alphad B}\}\mathbb{A}_{n}  = 2P_{\aad} \delta^{A}_{\;\;B}\mathbb{A}_{n}  \quad \Rightarrow \quad Q_{\alpha}^{A}\mathbb{A}_{n} = \bar{Q}_{\alphad B}\mathbb{A}_{n} =0
+\end{equation}
+
+
+We have that the Supersymmetry generators annihilate the super amplitude. Note that the generator $Q_{\alpha}^{A}$ act multiplicatively, and we can write it as a Grassmann delta function, from the property \footnote{To see that use a test function $F(\eta) = F_{0} +F_{1}\eta $ and the integration rules $\int d\eta \eta = 1 \quad \int d\eta 1 = 0$ and prove  $\int d\eta \delta(\eta -\eta_{0})F(\eta) =F(\eta_{0})  $.}  $\delta(\eta-\eta_{0}) =\eta-\eta_{0} $ 
+
+Then we use  the statement that $Q_{\alpha}^{A}\mathbb{A}_{n} =0$ to write $\mathbb{A}_{n} \propto \delta^{8}(Q_{\alpha}^{A}) $ such that $Q_{\alpha}^{A} \delta^{8}(Q_{\alpha}^{A}) =0$. Then the Superamplitude can be decomposed as
+
+
+\begin{equation}
+\mathbb{A}_{n}(\lambda_{i},\lambdab_{i},\eta_{i}) = \delta^{8}(Q_{\alpha}^{A})\delta^{4}(P) \mathbb{A}_{n}^{(K)}(\lambda_{i},\lambdab_{i},\eta_{i})
+\end{equation}
+
+
+
+where $K$ is the degree in $\eta$, where $\mathbb{A}_{n}^{(K)} \sim \mathcal{O}(\eta^{K})$. Note that the $SU(4)_{R}$ symmetry impose that $\mathbb{A}_{n}^{(K)}$  have an $\eta$ expansion of the form
+
+\begin{equation}
+\mathbb{A}_{n}^{(K)} =\mathbb{A}_{n}^{(0)} + \mathbb{A}_{n}^{(4)} + \mathbb{A}_{n}^{(8)} + \dots +\mathbb{A}_{n}^{(4n - 16)} 
+\end{equation} 
+
+
+
+
+The explicit expression for the  Grassmann delta is 
+
+\begin{equation}
+\delta^{8}(Q_{\alpha}^{A}) = \prod_{\alpha=1}^{2}\prod_{A=1}^{4}\left(\sum_{i=1}^{n}\lambda_{\alpha}^{(i)}\eta^{A}_{(i)}\right)  =\frac{1}{2} \prod_{A=1}^{4} \sum_{i,j=1}^{n}\langle ij \rangle \eta^{A}_{(i)}\eta^{A}_{(j)}\footnote{for Grassmann variables we have $\theta_{1}\theta_{2} = \frac{1}{2}\theta^{\alpha}\theta_{\alpha} $, then $Q^{A}_{1}Q^{A}_{2} = \frac{1}{2}Q^{\alpha A}Q^{A}_{\alpha}$} 
+\end{equation}
+
+
+we used $\langle\lambda_{i},\lambda_{j}\rangle = \langle ij \rangle$. Finally we can see that the expansion on the super-amplitude starts at order $\eta^{8}$ from the  Grassmann delta. Then the amplitudes \eqref{eq.2.19}-\eqref{eq.2.20} are zero because they are order zero and forth in $\eta$. As I promised these two amplitudes are zero due to a hidden supersymmetry. 
+
+
+The MHV amplitude with particles $r,s$ with negative helicity, can be extracted from the superamplidute as 
+
+
+\begin{align}
+A_{n}(r^{-},s^{-}) &= \int d^{4}\eta_{s}d^{4}\eta_{r} \mathbb{A}_{n}^{K}  \\ \nonumber  &= \delta^{4}(P)\int d^{4}\eta_{s}d^{4}\eta_{r} \prod_{A=1}^{4} \sum_{i,j=1}^{n}\langle ij \rangle \eta^{A}_{(i)}\eta^{A}_{(j)}\mathbb{A}_{n}^{K} \\ \nonumber
+&= \delta^{4}(P) \langle sr \rangle^{4}\mathbb{A}_{n}^{0}
+\end{align}
+
+we can read from \eqref{eq.2.14} that $\mathbb{A}_{n}^{0}$ (zero order expansion in $\eta$) is given by 
+
+\begin{equation}
+\mathbb{A}_{n}^{0} = \frac{1}{\langle 12\rangle \langle 23\rangle \dots \langle n1\rangle }
+\end{equation}
+
+
+We can also see that the power in $ \langle sr \rangle^{4}$ is due to $\mathcal{N} = 4$ supercharges.
+
+
+
+
+
+
+
+
+
+
+
+\begin{equation}
+h = \frac{1}{2}\left( -\lambda^{\alpha}\frac{\partial}{\partial\lambda^{\alpha}} + \lambdab^{\alphad}\frac{\partial}{\partial\lambdab^{\alphad}} + \eta_{A}\frac{\partial}{\partial\eta_{A}} \right)
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

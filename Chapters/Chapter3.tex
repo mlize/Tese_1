@@ -1,0 +1,508 @@
+% !TEX root = ../Thesis.tex
+%*******10********20********30********40********50********60********70********80
+
+% For all chapters, use the newdefined chap{} instead of chapter{}
+% This will make the text at the top-left of the page be the same as the chapter
+
+\chap{Twistors}
+
+
+As a motivation to study Twistors, I will start with the conformal transformations and then see that the generators in twistor variables (something that I have not told you what they are) are easier to deal with than the spinors variables ($\lambda,\bar{\lambda}$). 
+
+
+
+\section{Conformal Invariance}
+
+Lets first give a reason why conformal transformation are interesting. I will do this by study the symmetries of Maxwell theory. Conformal transformations on an space are those that preserve locally angles between two lines, mathematically this definition is:
+
+\begin{equation}
+g_{lk}(x) \frac{\partial x^{l}}{\partial x^{'m}}\frac{\partial x^{k}}{\partial x^{'n}} = \Lambda(x^{'})g_{mn}(x^{'})
+\end{equation}
+
+In our case will be sufficient to study the flat metric $\eta_{mn} = (-,++...+)$, the dots are because it's useful to consider $d$ dimensions. Then the equation that we want to solve is:
+
+\begin{equation}
+\eta_{lk} \frac{\partial x^{l}}{\partial x^{'m}}\frac{\partial x^{k}}{\partial x^{'n}} = \Lambda(x^{'})\eta_{mn}
+\label{eq.3.2}
+\end{equation}
+
+We could also write this equation in infinitesimal form using $x^{'m} = x^{m} + \epsilon \xi^{m}(x) + \mathcal O (\epsilon^{2})$, where $\epsilon$ is small. So if we just do a Taylor expansion in  $\Lambda(x^{'}) = 1 - \epsilon K(x) +\mathcal O (\epsilon^{2}) $ and $\frac{\partial x^{k}}{\partial x^{'n}} = \delta ^{k}_{\; n} - \epsilon\partial_{n}\xi^{k} +\mathcal O (\epsilon^{2}) $ we see that in the infinitesimal formal is given by
+
+\begin{equation}
+\partial_{m}\xi_{n} + \partial_{n}\xi_{m} = K(x)\eta_{mn}
+\end{equation}
+
+we can find an even simpler equation if we take the trace of this equation to isolate $K(x)$ and we get: 
+
+\begin{equation}
+\partial_{m}\xi_{n} + \partial_{n}\xi_{m} = \frac{2}{d}(\partial \cdot \xi)\eta_{mn}
+\label{eq3.1}
+\end{equation}
+
+where the $d$ appears from $\eta_{mn}\eta^{mn} = d$ is the dimension of the spacetime. Maybe here is a good place to stop and give you the motivation that I promised.
+
+The Maxwell theory in d-flat dimensions is given by the action
+
+\begin{equation}
+S_{MW} = -\frac{1}{4g} \int dx^{d} F^{mn}F_{mn}
+\end{equation}
+
+where $F_{mn} = \partial_{m}A_{n} - \partial_{n}A_{m}$  is the usual field strength, and $g$ is the coupling constant. So lets see how this action transform under a conformal transformation. The potential transform as  $A_{m}^{'}(x^{'}) = \frac{\partial x^{l}}{\partial x^{'m}} A_{l}(x) $ then under $x'_{n} = x_{n} - \epsilon\xi_{n} $:
+
+\begin{equation*}
+A_{m}^{'}(x^{'}) = A_{m}^{'}(x) -  \epsilon\xi^{n}\partial_{n} A_{m}^{'}(x) = A_{m}(x) +  \partial_{m}(\epsilon\xi^{l})A_{l}(x)
+\end{equation*}
+
+Then the infinitesimal transformation is given by 
+
+\begin{equation}
+\delta_{\xi}A_{m} \equiv A_{m}^{'}(x) - A_{m}(x)  =  \epsilon\xi^{n}\partial_{n} A_{m}(x) +  \partial_{m}(\epsilon\xi^{l})A_{l}(x)
+\end{equation}
+
+this infinitesimal transformation is the Lie derivative $\mathcal L_{\xi} A_{m}$. Now if we do the same thing for the tensor $F_{mn}$ we get 
+
+\begin{equation}
+\delta_{\xi}F_{mn}   =  \epsilon\xi^{r}\partial_{r} F_{mn}(x) +  \partial_{m}(\epsilon\xi^{l})F_{ln}(x) + \partial_{n}(\epsilon\xi^{l})F_{ml}(x)
+\end{equation}
+
+Now we have all the ingredients we can calculate the variation of the action 
+
+\begin{align}
+ \delta_{\xi}S_{MW} &= -\frac{1}{2g} \int dx^{d} F^{mn}\{ \xi^{r}\partial_{r} F_{mn} +  \partial_{m}(\xi^{l})F_{ln} + \partial_{n}(\xi^{l})F_{ml}\}	\\
+ &=  -\frac{1}{2g}\int dx^{d}\{\frac{1}{2} \partial_{r}(\xi^{r}F^{2}) -\frac{1}{2}\partial \cdot \xi (F^{2}) + F^{mr}F^{n}_{\;\;\;r}(\partial_{m}\xi_{n} +\partial_{n}\xi_{m} )			\}\\
+ &= -\frac{1}{4g} \int dx^{d} \{ \partial_{r}(\xi^{r}F^{2}) + (\frac{4}{d} - 1)F^{2} \}
+\end{align}
+
+here $F^{2} \equiv F^{mn}F_{mn}$ and to go from the second line to third I used the equation \eqref{eq3.1}. The Maxwell theory is conformal invariant only in $d=4$ it is a total derivative. That's our motivation to study conformal transformation, the Maxwell theory has more symmetry than just Lorentz transformation.
+\subsection{Generators of conformal algebra}
+
+Now that we are motivated, let's study  more deeply  the conformal transformations, but not so deep, even because we just want the generators, thus if you want a more elaborate and complete solution you could go here and here[T. Zee, franscesco ]  . To do so,  we have to find the  vector that solves the equation \eqref{eq3.1}.
+....rewrite..... \textcolor{red}{One could solve by brute force, but I choose to guess the answer and see if ti works}.
+
+First let's manipulate  \eqref{eq3.1} by acting with $\partial^{m}$ and then $\partial^{n}$ we get:
+\begin{equation}
+d\partial^{2} \xi_{n} = (2-d) \partial_{n}(\partial \cdot \xi) \quad ; \quad (d-1)\partial^{2}(\partial \cdot \xi)=0
+\label{eq.3.6}
+\end{equation} 
+
+
+From  one see that $d=2$ things become simpler. If you write $\partial_{1} = \partial_{z} +i\partial_{\bar{z}} $ and $\partial_{2} = \partial_{z} -i\partial_{\bar{z}} $ in complex variables $z,\bar{z}$, you find (in $\eta=(1,1)$) the Laplacian $\partial_{z}\partial_{\bar{z}}\xi(z,\bar{z})= 0$. This implies that $\xi(z,\bar{z})$ has infinity solutions, for example, $\xi(z,\bar{z}) = f(z)$ or $g(\bar{z})$ . This is what we have in string theory the world-sheet has two dimension conformal symmetry.
+
+From the second equation in \eqref{eq.3.6} when $d\neq 1$ the vector is $\xi \sim x^{2}$. From equation \eqref{eq.3.2} if we set $\Lambda(x) = 1$ then $K(x) = 0$  we get $\partial_{m}\xi_{n} =- \partial_{n}\xi_{m}$ and $\xi_{m} = a_{m} + b_{m}^{\;\;n}x_{n}$ with $b_{mn} = -b_{nm}$. This is Translation and Lorentz transformation, i.e the \textcolor{red}{Poincaré acento} transformations. Now if we make rescaling on $x^{'} = \lambda x$ we see that $\Lambda =\lambda^{2} $ so it's a valid transformation, these are called dilations. We are almost done, we still can have order quadratic in $x$. There are not some many ways to write a second order term. A good start could be $\xi_{m} = a_{m}x^{2} + (b\cdot x)x_{m}$. If one plug this guess in the equations and do some manipulations, you get the right answer  $\xi_{m} = d^{n}(\eta_{mn}x^{2} -  2x_{n}x_{m})$ this are called the Special Conformal Transformations(SCTs). Just to summarize the conformal vector is given by:
+
+\begin{equation}
+\xi_{m} = \underbrace{a_{m}}_{Translation} +  \underbrace{b_{m}^{\;\;\;n}x_{n}}_{Lorentz} 
++ \underbrace{cx_{m}}_{Dilation} + 
+\underbrace{d^{n}(\eta_{mn}x^{2} -  2x_{n}x_{m})}_{SCT}
+\label{eq3.3}
+\end{equation}
+
+
+One thing to recall is that all this analysis was done for the Minkowski metric. Now we can read off the generator $G$ for each transformation from \eqref{eq3.3}, if we use the differential operator representation, from the definition $\delta_{\xi} x_{m} = \xi \cdot G x_{m}$, we get:
+
+
+\begin{subequations}
+
+\begin{equation}
+ P_{m} = -i\partial_{m} \quad \text{and} \quad  M_{mn} = i(x_{m}\partial_{n} -x_{n}\partial_{m}) \\ \label{eq.3.3}
+\end{equation}
+
+\begin{equation}
+D = -ix^{m}\partial_{m} \quad \text{and} \quad K^{m} = -i(\eta^{mn}x^{2} -2x^{m}x^{n})\partial_{n} 
+\label{eq.3.4}
+\end{equation}
+
+
+\end{subequations}
+
+\noindent
+with these generators we can go and calculate the algebra they form. With $[P_{m},X_{n}] = i\eta_{mn}$ and $[A,BC]= [A,B]C +B[A,C]$ you can calculate all the commutators.
+
+
+
+
+\begin{align}
+& [D,P^{m}] = iP^{m} \quad; \quad [D,K^{m}] = - iK^{m}\quad; \quad  [D,M^{mn}] =0  
+\\
+&[M^{mn},P^{l}] = -\eta^{ml}P^{n} + \eta^{nl}P^{m}\quad; \quad [M^{mn},K^{l}] = -\eta^{ml}K^{n} + \eta^{nl}K^{m}
+\\
+&[M^{mn},M^{lr}] = i(-\eta^{ml}M^{nr} - \eta^{nr}M^{ml} + \eta^{nl}M^{mr} + \eta^{mr}M^{nl})
+\\
+&[K^{m},P^{n}] = 2i(-M^{mn} + \eta^{mn}D)
+\end{align}
+
+
+We can just look the generator and count how many they are. In d-dimension $M: \frac{d(d-1)}{2}$, $P:\; d$ , $K: \;d$ and $D: \;1$ a total of $\frac{(d+1)(d+2)}{2}$. What is this group? If we look for the number of generators in the Lorentz group($M$) and compare with the conformal group is just a shit on $d \rightarrow d +2$, i.e, $\frac{d(d-1)}{2} \rightarrow \frac{(d+1)(d+2)}{2}$, thus on good guest the Conformal group would be $SO(q,p)$ with $q+p = d+2$. The conformal group in $d=4$ is $SO(4,2)$.
+(maybe a appendix about that or even here)
+
+\section{Conformal invariance of the MHV amplitudes}
+
+As I promised in the chapter 2 (make a ref link) when I introduced the MHV tree amplitude formula \eqref{eq.2.14} to check the symmetries. As we just saw the Yang-Mills theory has a bigger group that the Poicare symmetry, it is also invariant under conformal transformations. Thus the amplitude should also be invariant under these transformations. To be able to calculate this invariance we have to find the generators \eqref{eq.3.3}-\eqref{eq.3.4} in the spinor ($\lambda,\lambdab$) representation.
+
+
+The momentum generator are just the multiplication operator
+
+\begin{equation}
+P_{\aad} = \lambda_{\alpha}\lambdab_{\alphad}
+\end{equation}
+
+The Lorentz Generators can be found by looking how a spinor transform(appendix)
+
+\begin{equation}
+\delta \lambda_{\alpha} = \frac{i}{2} \underbrace{\omega_{mn}(\sigma^{mn})_{\alpha}^{\;\;\beta}}_{\Omega_{\alpha}^{\;\;\beta}} \lambda_{\beta}
+\end{equation}
+
+the variation if define as
+
+\begin{equation}
+\delta \lambda_{\rho} = \Omega^{\alpha \beta} m_{\alpha \beta} \lambda_{\rho}
+\end{equation}
+
+where $\Omega^{\alpha \beta} $ are the coefficients of the transformation and $m_{\alpha \beta}$ is the generator of the transformation.
+Thus the Lorentz generator is a first order differential operator given by
+
+
+\begin{equation}
+ m_{\alpha \beta} = \frac{i}{2} \left(  \lambda_{\alpha} \frac{\partial}{\partial \lambda^{\beta}}  + \lambda_{\beta} \frac{\partial}{\partial \lambda^{\alpha}}  \right)
+\end{equation}
+
+The same thing for the dotted indices:
+
+\begin{equation}
+ \bar{m}_{\alphad \betad} = \frac{i}{2} \left(  \lambdab_{\alphad} \frac{\partial}{\partial \lambdab^{\betad}}  + \lambdab_{\betad} \frac{\partial}{\partial \lambdab^{\alphad}}  \right)
+\end{equation}
+
+
+They are symmetric in ($\alpha,\beta$) and ($\alphad,\betad$) this gives $4-1=3$ generators in a total of $6$ for both $m,\bar{m}$. They can be thought as the projection $m_{\alpha \beta} = M^{mn} \sigma_{\alpha \beta}$ and $\bar{m}_{\alphad \betad} = M^{mn} \sigmab_{\alphad \betad}$ where $\sigma_{\alpha \beta} \;\;\&\;\; \sigmab_{\alphad \betad}$ are the Lorentz generators (appendix). ( Note we use the $\varepsilon_{\alphad \betad}$ and $\varepsilon_{\alpha \beta}$ to raise and lower the indices).
+
+We have to find the generators of dilation and special conformal transformation. From the action of dilation of momentum $[D,P^{m}] = i P^{m}$ we can associate a dilation weight $+1$ and a dilation weight $-1$ for $K^{m}$. A natural guess for the dilation is 
+
+\begin{equation}
+d = \frac{i}{2}\left( \lambda^{\alpha} \frac{\partial}{\partial \lambda^{\alpha}}  + \lambdab^{\alphad} \frac{\partial}{\partial \lambdab^{\alphad}} + c \right) 
+\end{equation}
+
+we see that $[d,\lambda_{\alpha}] = \frac{i}{2}\lambda_{\alpha}$ and $[d,\lambdab_{\alphad}] = \frac{i}{2}\lambdab_{\alphad}$, for any  constant $c$. Thus is natural to associate the dilation weight $1/2$ for the ($\lambda,\lambdab$) spinors.
+
+To construct the special conformal transformation operator is not so trivial to guess 
+
+\begin{equation}
+K_{\aad} = \frac{\partial^{2}}{\partial \lambda^{\alpha}\partial \lambdab^{\alphad}} 
+\end{equation}
+
+
+but is the simplest operator that has the right dilation weight $-1$ and the commutator with $d$
+
+\begin{equation}
+[d,K_{\aad}] = -iK_{\aad}
+\end{equation}
+
+
+If works it is fine, but keep in  mind the second order differential operator are not so nice, and this may seen as a motivation to introduce Twistors.
+One way to fix the constant $c$ in the dilation operator is using the commutation relation 
+
+\begin{equation}
+[K_{\aad},P^{\bdb}] = -i (\delta_{\alpha}^{\;\;\beta}\bar{m}_{\alphad}^{\;\;\betad} + \delta_{\alphad}^{\;\; \betad} m_{\alpha}^{\;\; \beta} + \delta_{\alpha}^{\;\; \beta} \delta_{\alphad}^{\;\; \betad}d  )
+\label{eq.3.5}
+\end{equation}
+
+doing the calculation on the left side by just plugging the definition of $K$ and $P$ we find 
+\begin{equation}
+[K_{\aad},P^{\bdb}] = \delta_{\alpha}^{\;\; \beta} \delta_{\alphad}^{\;\; \betad} + \delta_{\alpha}^{\;\; \beta} \lambdab^{\betad}\frac{\partial}{\partial \lambdab^{\alphad}} + \delta_{\alphad}^{\;\; \betad} \lambda^{\beta}\frac{\partial}{\partial \lambda^{\alpha}}
+\end{equation} 
+
+
+using the antisymmetric property of two spinors $(A_{\alpha}B_{\beta} -A_{\beta}B_{\alpha}) = \varepsilon_{\alpha\beta}A^{\rho}B_{\rho}$. (To see this just plug the numbers). Thus we can split $ \lambda^{\beta}\frac{\partial}{\partial \lambda^{\alpha}}$ in symmetric plus antisymmetric part
+
+\begin{equation}
+\lambda^{\beta}\frac{\partial}{\partial \lambda^{\alpha}} = -i m_{\alpha}^{\;\; \beta} + \frac{1}{2} \delta_{\alpha}^{\;\; \beta} \lambda^{\rho}\frac{\partial}{\partial \lambda^{\rho}}
+\label{eq.3.7}
+\end{equation}
+
+the same is true for the dotted index
+\begin{equation}
+\lambdab^{\betad}\frac{\partial}{\partial \lambdab^{\alphad}} = -i \bar{m}_{\alphad}^{\;\; \betad} + \frac{1}{2} \delta_{\alphad}^{\;\; \betad} \lambda^{\dot{\rho}}\frac{\partial}{\partial \lambdab^{\dot{\rho}}}
+\end{equation}
+
+we used the fact that the symmetric part is proportional to the Lorentz generator.
+
+Finally we can identify the left side of \eqref{eq.3.5} and find the dilation operator is 
+
+
+\begin{equation}
+d = \frac{i}{2}\left( \lambda^{\alpha} \frac{\partial}{\partial \lambda^{\alpha}}  + \lambdab^{\alphad} \frac{\partial}{\partial \lambdab^{\alphad}} + 2\right) 
+\end{equation}
+
+Now we are ready to prove that the MHV amplitude is invariant under conformal transformations. First the generators that we found were for one particle. For $n$ particle is just the sum of the individual particle.
+
+Let me remind you the form of the MHV-Amplitude (without the color trace):
+
+ \begin{equation}
+A_{n}(r^{-},s^{-})  =   g^{n-2}(2\pi)^{4}\delta^{4}\left( \sum_{i}^{n}\lambda^{(i)}_{\alpha}\lambdab^{(i)}_{\alphad}  \right) \frac{\langle \lambda_{r},\lambda_{s},\rangle ^{4}}{\prod_{i=1}^{n}\langle \lambda_{i},\lambda_{i+1}\rangle} 
+ \end{equation}
+
+-- Translation operator:
+
+\begin{equation}
+P_{\aad} = \sum_{i=1}^{n} \lambda^{(i)}_{\alpha}\lambdab^{(i)}_{\alphad}
+\end{equation}
+
+
+then 
+
+\begin{equation}
+P_{\aad} A_{n} = 0 
+\end{equation}
+
+the delta function gives zero. 
+
+-- Lorentz operator:
+
+\begin{equation}
+ m_{\alpha \beta} = \frac{i}{2} \sum_{i=1}^{n} \left(  \lambda_{\alpha}^{(i)} \frac{\partial}{\partial \lambda^{\beta(i)}}  + \lambda_{\beta}^{(i)} \frac{\partial}{\partial \lambda^{\alpha(i)}}  \right)
+\end{equation}
+
+
+the Lorentz is manifest in the MHV amplitude because it only depends on Lorentz Invariant objects $\langle \lambda^{(i)},\lambda^{(j)}  \rangle$.
+
+-------maybe add the calculation-------
+
+
+
+
+-- Dilation operator:
+
+\begin{equation}
+d = \frac{i}{2} \sum_{i=1}^{n} \left( \lambda^{\alpha(i)} \frac{\partial}{\partial \lambda^{\alpha(i)}}  + \lambdab^{\alphad(i)} \frac{\partial}{\partial \lambdab^{\alphad(i)}} + 2\right) 
+\end{equation}
+
+As we saw the the dilation operator measures the weight in mass units. Then the operator will give the mass weight plus $n$ when act on the amplitude
+
+\begin{equation}
+d A_{n} = ([A_{n}] + n)A_{n} = \left(  [\langle \lambda^{(r)},\lambda^{(s)}  \rangle^{4}] + [\delta^{4}(p)] + [\frac{1}{\prod_{i=1}^{n}\langle \lambda_{i},\lambda_{i+1}\rangle}] + n \right)A_{n}
+\end{equation}
+
+Thus we have $[\lambda] = 1/2$ ; $[\langle \lambda^{(i)},\lambda^{(j)}  \rangle^{4}] = 4$ ; and $[\delta^{4}(p)] = -4$. Also$[ \frac{1}{\langle \lambda_{i},\lambda_{i+1}\rangle}] = -1$ 
+
+We have 
+\begin{equation}
+d A_{n} = (4 - 4  + n(-1) + n)A_{n} = 0
+\end{equation}
+
+
+
+--Special Conformal operator
+
+\begin{equation}
+K_{\aad} = \sum_{i=1}^{n}  \frac{\partial^{2}}{\partial \lambda^{\alpha(i)}\partial \lambdab^{\alphad(i)}}
+\end{equation}
+ 
+
+
+To prove that the invariance of the MHV amplitude we note that $\lambdab$ is on the delta function only so
+
+ \begin{align}
+ K_{\aad}A_{n} =  \sum_{i=1}^{n} \left[
+\frac{\partial}{\partial \lambda^{\alpha(i)}} \left(  
+  \frac{\partial}{\partial \lambdab^{\alphad(i)}} \delta^{4}(p)
+ \right) \mathcal{A}_{n}  + \left(  
+   \frac{\partial}{\partial \lambdab^{\alphad(i)}} \delta^{4}(p)
+  \right)\frac{\partial}{\partial \lambda^{\alpha(i)}} \mathcal{A}_{n} \right]
+ \end{align}
+
+
+using the chain rule $\frac{\partial}{\partial \lambdab^{\alphad(i)}} = \frac{\partial P^{\bdb}}{\partial \lambdab^{\alphad(i)}} \frac{\partial}{\partial P^{\bdb}} = \lambda^{\beta(i)} \frac{\partial}{\partial P^{\dot{\alpha}\beta}}$ we get 
+
+
+ \begin{align}
+ K_{\aad}A_{n} = 
+  \left(
+ n\frac{\partial}{\partial P^{\ada}} \delta^{4}(p) +   
+  P^{\bdb} \frac{\partial}{\partial P^{\dot{\alpha}\beta}}\frac{\partial}{\partial P^{\alpha\dot{\beta}}} \delta^{4}(p)
+ \right) \mathcal{A}_{n}  + 
+\sum_{i=1}^{n}
+ \left(  
+   \frac{\partial}{\partial P^{\dot{\alpha}\beta}} \delta^{4}(p)
+  \right)  \lambda^{\beta(i)} \frac{\partial}{\partial \lambda^{\alpha(i)}} \mathcal{A}_{n} 
+ \label{eq.3.10}
+ \end{align}
+ 
+
+
+The last term we use the decomposition symmetry plus antisymmetry \eqref{eq.3.7}. Keeping in mind that $m_{\alpha}^{\;\; \beta} \mathcal{A}_{n}  =0$. And that the antisymmetric piece is the $\lambda $  part of the dilation operator, thus
+
+\begin{equation}
+\lambda^{\beta}\frac{\partial}{\partial \lambda^{\alpha}}\mathcal{A}_{n} = [\mathcal{A}_{n}] = (4 - n)\mathcal{A}_{n}
+\label{eq.3.8}
+\end{equation}
+
+
+The last piece of information is to note that 
+
+\begin{equation}
+P^{\bdb} \frac{\partial}{\partial P^{\dot{\alpha}\beta}}\frac{\partial}{\partial P^{\alpha\dot{\beta}}} \delta^{4}(p) = -4 \frac{\partial}{\partial P^{\dot{\alpha}\alpha}} \delta^{4}(p)
+\label{eq.3.9}
+\end{equation}
+
+this can be seen as a property of delta function $\delta^{'}(x)f(x) = -f^{'}(x)\delta(x) $ and $x\delta^{''}(x)f(x) = -2\delta^{'}(x)f(x) $. The extra $2$ in the formula is due to $\frac{\partial P^{\bbd}}{\partial P^{\beta \dot{\alpha}}} = 2 \delta^{\betad}_{\;\; \alphad}$ compare to the simple example.
+
+
+Plugging \eqref{eq.3.8}-\eqref{eq.3.9} in to \eqref{eq.3.10}, we see that the MHV amplitude is indeed invariant under special conformal transformations.
+
+
+
+\section{Twistor Space as a conformal representation}
+
+
+Let us consider a space that the conformal generators are simpler. This space is called Twistor space.
+
+Consider the wave function $\psi(\lambda,\lambdab)$ and let us make a Fourier transformation in the $i$ particle in two ways
+
+\begin{equation}
+\tilde{\psi}(Z_{i}) = \int d^{2}\lambdab_{i}\psi(\lambda_{i},\lambdab_{i}) \exp(i\lambdab^{\alphad}_{(i)}\mu_{\alphad(i)})  
+\label{eq.3.11}
+\end{equation}
+
+
+where $Z_{i} \equiv (\lambda_{i},\mu_{i})$ denote a 4 component vector. If we consider the metric $SO(2,2)$ the spinors ($\lambda,\lambdab$) are real and independent. Thus \eqref{eq.3.11}   is the usual Fourier transformation, and the variable $\mu$ can be interpreted as  the conjugate of $\lambdab$, in the same sense  $p$ is the conjugate of $x$. 
+
+The conformal group in the signature $SO(2,2)$ is given by $SL(4,R)$. Note that the $Z$ in this metric is a $4$ real component vector that transforms naturally under $SL(4,R)$. The $Z$ is called twistor  lives in  $R^{4}$ the twistor space.
+
+
+As you probably note the scaling $(\lambda,\lambdab) \rightarrow ( t\lambda,t^{-1}\lambdab)   $ plays a important role, by connecting the helicity of the particle and how the amplitude change under this scaling. Just to remind you 
+
+\begin{equation}
+\mathcal{A}(t\lambda_{i},t^{-1}\lambdab_{i}) = t^{-2h_{i}}\mathcal{A}(\lambda_{i},\lambdab_{i})
+\end{equation}
+
+If we transform the amplitude to the Twistor space 
+
+\begin{equation}
+\tilde{\mathcal{A}}(Z_{i}) = \int d^{2}\lambdab_{i}\mathcal{A}(\lambda_{i},\lambdab_{i}) \exp(i\lambdab^{\alphad}_{(i)}\mu_{\alphad(i)})  
+\label{eq.3.12}
+\end{equation}
+
+Under $Z_{i}(\lambda_{i},\mu_{i}) \rightarrow tZ_{i}(\lambda_{i},\mu_{i}) $ the amplitude change as 
+
+\begin{equation}
+\tilde{\mathcal{A}}(tZ_{i}) = \int d^{2}\lambdab_{i}\mathcal{A}(t\lambda_{i},\lambdab_{i}) \exp(i\lambdab^{\alphad}_{(i)}t\mu_{\alphad(i)})   = t^{-2(h_{i}+1)}\tilde{\mathcal{A}}(Z_{i})
+\label{eq.3.13}
+\end{equation}
+
+where the $t^{-2}$ came from redefining the $d^{2}\lambdab_{i} \rightarrow t^{-2}d^{2}\lambdab_{i}$. From \eqref{eq.3.13} the $\tilde{\mathcal{A}}(Z_{i})$ transforms homogeneously with weight $-2(h_{i}+1)$ in the $Z_{i}$ variable. Thus we can define our helicity operator in twistor variables as 
+
+\begin{equation}
+h = -\frac{1}{2}\left( Z^{I}_{i}\frac{\partial}{\partial Z_{i}^{I}} + 2 \right)
+\end{equation}
+
+
+
+To find the generators $G(\lambda,\lambdab)$ in the twistor space $\tilde{G}(\lambda,\mu) $ we use the Fourier transformation
+
+\begin{equation}
+\tilde{G}(\lambda,\mu)  \tilde{\psi}(\lambda,\mu) = \int d^{2}\lambdab_{i}G(\lambda,\lambdab)\psi(\lambda,\lambdab) \exp(i\lambdab^{\alphad}_{}\mu_{\alphad})  
+\end{equation}
+
+
+Doing carefully you find that 
+
+\begin{equation}
+\lambdab_{\alphad} \frac{\partial}{\partial\lambdab^{\betad}} \rightarrow - \varepsilon_{\alphad \betad} + \mu_{\betad} \frac{\partial}{\partial\mu^{\alphad}}
+\end{equation}
+
+
+the rest of the transformation are trivial so we find the generators in twistor variables as 
+
+
+\begin{equation}
+ m_{\alpha \beta} = \frac{i}{2} \sum_{i=1}^{n} \left(  \lambda_{\alpha}^{(i)} \frac{\partial}{\partial \lambda^{\beta(i)}}  + \lambda_{\beta}^{(i)} \frac{\partial}{\partial \lambda^{\alpha(i)}}  \right)
+\end{equation}
+
+
+\begin{equation}
+ \bar{m}_{\alphad \betad} = \frac{i}{2} \sum_{i=1}^{n} \left(  \mub_{\alphad}^{(i)} \frac{\partial}{\partial \mu^{\betad(i)}}  + \mu_{\betad}^{(i)} \frac{\partial}{\partial \mu^{\alphad(i)}}  \right)
+\end{equation}
+
+
+-- Dilation operator:
+
+\begin{equation}
+d = \frac{i}{2} \sum_{i=1}^{n} \left( \lambda^{\alpha(i)} \frac{\partial}{\partial \lambda^{\alpha(i)}}  - \mu^{\alphad(i)} \frac{\partial}{\partial \mu^{\alphad(i)}} \right) 
+\end{equation}
+
+--Special Conformal operator
+
+\begin{equation}
+K_{\aad} = i\sum_{i=1}^{n}  \mu_{\alphad}\frac{\partial}{\partial \lambda^{\alpha(i)} }
+\end{equation}
+
+-- Momentum operator 
+
+
+\begin{equation}
+P_{\aad} = i\sum_{i=1}^{n}  \lambda_{\alpha}^{(i)}\frac{\partial}{\partial \mu^{\alphad(i)} }
+\end{equation}
+
+\subsection{amplitudes and Twistor ( re-think the name) }
+
+
+
+
+Now that we know how the conformla generatos look like in the twistor matheus
+
+To appreciate even more Twistors we will take a look on the
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{The ambitwistor }
+
+In \eqref{eq.3.12} we choose to Fourier transform $\lambdab$ but we could have done the opposite 
+
+
+
+\begin{equation}
+\tilde{\mathcal{A}}(W_{i}) = \int d^{2}\lambda_{i}\mathcal{A}(\lambda_{i},\lambdab_{i}) \exp(i\bar{\mu}^{\alpha}_{(i)}\lambda_{\alpha(i)})  
+\end{equation}
+
+here we define $W=(\mub,\lambdab)$ called the ambitwistor variable. Than using the power of scaling again we get 
+
+\begin{equation}
+\tilde{\mathcal{A}}(tW_{i}) = \int d^{2}\lambda_{i}\mathcal{A}(\lambda_{i},t\lambdab_{i}) \exp(it\mub^{\alpha}_{(i)}\lambda_{\alpha(i)})  = t^{2(h-1)}\tilde{\mathcal{A}}(W_{i})
+\end{equation}
+
+ using $\mathcal{A}(t^{-}\lambda_{i},t\lambdab_{i}) = t^{2h_{i}}\mathcal{A}(\lambda_{i},\lambdab_{i}) $ . Note that ig the particle $i$ has positive helicity then  $\mathcal{A}(tW_{i}) = \mathcal{A}(W_{i}) $ and the same is true for a particle with negative helicity $\mathcal{A}(tZ_{i}) = \mathcal{A}(Z_{i}) $.  
+ The $W$ can be interpreted as the conjugate of $Z$. In the same way we did for the $\mu$ and $\lambdab$. We can construct a invariant Lorentz object $Z \cdot W = \lambda\mub + \mu\lambdab$.
+ With these constrains we can calculate for example the $4$ gluon scattering $\mathcal{A}(1^{+},2^{+},3^{-},4^{-})$ using the fact that 
+ 
+ \begin{align}
+ \mathcal{A}(W_{1}^{+},W_{2}^{+},Z_{3}^{-},Z_{4}^{-}) =&\nonumber \mathcal{A}(tW_{1}^{+},W_{2}^{+},Z_{3}^{-},Z_{4}^{-})=\mathcal{A}(W_{1}^{+},tW_{2}^{+},Z_{3}^{-},Z_{4}^{-})= \\ 
+ =&\mathcal{A}(W_{1}^{+},W_{2}^{+},tZ_{3}^{-},Z_{4}^{-})=\mathcal{A}(W_{1}^{+},W_{2}^{+},Z_{3}^{-},tZ_{4}^{-})
+ \end{align}
+
+so it seems that it does not depend on the $W's$ and $Z's$. It seems that in twistor variable the amplitude is just a constant. Actually the amplitude will depend the sign of each Lorentz product. 
+
+ \begin{align}
+ \mathcal{A}(W_{1}^{+},W_{2}^{+},Z_{3}^{-},Z_{4}^{-}) = sign(Z_{3}\cdot W_{1})sign(Z_{3}\cdot W_{2})sign(Z_{4}\cdot W_{1})sign(Z_{4}\cdot W_{2})
+ \end{align}
+
+
+That is amazing! we were able to find the 4 gluon scattering in very few lines using just scaling and the right variables. 
+
+
+
+
+\section{Super conformal Transformation}
+
+
+
+
+
+
